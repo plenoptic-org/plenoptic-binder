@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# get plenoptic, don't need history here
+git clone --depth=1 https://github.com/plenoptic-org/plenoptic.git
+cd plenoptic
+mkdir notebooks
+
+# copy all executable notebooks into a new folder, replace sphinx crossrefs with
+# explicit urls (as best as possible), then convert to ipynb files
+for file in $(find docs/ -name '*.md'); do
+    # if it doesn't have this header, then it's not an executable notebook
+    if [[ $(head -2 $file | tr '\n' ' ') == "--- jupytext: " ]]; then
+        out_name=$(basename $file)
+        cp "$file" "notebooks/$out_name"
+        python ../replace_crossrefs.py main "notebooks/$out_name" "$file"
+        jupytext "notebooks/$out_name" --from myst -o "notebooks/${out_name/.md/.ipynb}"
+    fi
+done

@@ -1,0 +1,43 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "https://download.pytorch.org/whl/cpu"
+verify_ssl = true
+name = "downloadpytorch"
+
+[packages]
+numpy = ">=1.1"
+torch = {version = "2.11.0", index = "downloadpytorch"}
+pyrtools = ">=1.0.9"
+scipy = ">=1.0"
+matplotlib = ">=3.3"
+tqdm = ">=4.29"
+imageio = ">=2.5"
+scikit-image = ">=0.15.0"
+einops = ">=0.3.0"
+importlib-resources = ">=6.0"
+pooch = ">=1.2.0"
+lazy-loader = "*"
+sphinx = "*"
+pydata-sphinx-theme = "*"
+sphinx-autodoc-typehints = "*"
+sphinx-copybutton = "*"
+sphinxcontrib-bibtex = ">=2.6.4"
+sphinx-design = "*"
+myst-nb = "*"
+sphobjinv = "*"
+sphinx-togglebutton = "*"
+jupyter = "*"
+ipywidgets = "*"
+nbclient = ">=0.5.5"
+torchvision = ">=0.3"
+jupytext = "*"
+myst-parser = {extras = ["linkify"], version = "*"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
