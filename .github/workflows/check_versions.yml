@@ -9,7 +9,7 @@ permissions: {}
 jobs:
   check_pytorch_version:
     runs-on: ubuntu-latest
-    name: Check pytorch version for Jenkins image
+    name: Check binder-installed pytorch version
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
@@ -27,7 +27,7 @@ jobs:
 
   check_plenoptic_dependencies:
     runs-on: ubuntu-latest
-    name: Check pytorch supported python versions
+    name: Check binder-installed dependencies against plenoptic
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
