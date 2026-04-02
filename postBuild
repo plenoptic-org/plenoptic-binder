@@ -3,6 +3,7 @@
 # get plenoptic, don't need history here
 git clone --depth=1 https://github.com/plenoptic-org/plenoptic.git
 cd plenoptic
+pip install -e .[nb,docs]
 mkdir notebooks
 
 # copy all executable notebooks into a new folder, replace sphinx crossrefs with
