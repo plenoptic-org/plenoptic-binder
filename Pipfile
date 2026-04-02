@@ -9,6 +9,7 @@ verify_ssl = true
 name = "downloadpytorch"
 
 [packages]
+pipenv = ">=2025.0.4"
 numpy = ">=1.1"
 torch = {version = "2.11.0", index = "downloadpytorch"}
 pyrtools = ">=1.0.9"
