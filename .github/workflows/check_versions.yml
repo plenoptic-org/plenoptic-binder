@@ -18,7 +18,7 @@ jobs:
     - run: |
         recent_version=$(pip index versions torch | grep -oE "torch \([0-9\.]*?" | sed 's/torch (//g')
         pipfile_version=$(python .github/workflows/check_torch_version.py Pipfile)
-        if [[ pipfile_version != $recent_version ]]; then
+        if [[ $pipfile_version != $recent_version ]]; then
             echo "PYTORCH VERSION CHANGED, update Pipfile";
             echo "Pipfile: $pipfile_version";
             echo "PyPI: $recent_version";
