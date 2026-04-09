@@ -12,11 +12,9 @@ for file in $(find docs/ -name '*.md'); do
     # if it doesn't have this header, then it's not an executable notebook
     if [[ $(head -2 $file | tr '\n' ' ') == "--- jupytext: " ]]; then
         out_name=$(basename $file)
-        dir_name=$(dirname ${file/'docs/'/})
-        mkdir -p "notebooks/$dir_name"
         cp "$file" "notebooks/$out_name"
         python ../replace_crossrefs.py main "notebooks/$out_name" "$file"
-        jupytext "notebooks/$out_name" --from myst -o "notebooks/$dir_name/${out_name/.md/.ipynb}"
+        jupytext "notebooks/$out_name" --from myst -o "notebooks/${out_name/.md/.ipynb}"
         rm "notebooks/$out_name"
     fi
 done
