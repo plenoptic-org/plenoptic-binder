@@ -25,9 +25,9 @@ look weird.
 
 :::"""
 
-nb_txt = re.sub(r":::{admonition} Download.*?:::", warning, nb_txt, flags=re.DOTALL)
+nb_txt = re.sub(r":::{admonition} Run this notebook yourself.*?:::", warning, nb_txt, flags=re.DOTALL)
 
-for sphinx_domain, tilde, match in re.findall(r"({.*?})`(~?)([a-z-A-Z_\.]+?)`", nb_txt):
+for sphinx_domain, tilde, match in re.findall(r"({[A-z]+?})`(~?)([a-z-A-Z_\.]+?)`", nb_txt):
     if tilde:
         repl_txt = match.split(".")[-1]
     else:
