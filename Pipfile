@@ -38,6 +38,7 @@ nbclient = ">=0.5.5"
 torchvision = ">=0.3"
 jupytext = "*"
 myst-parser = {extras = ["linkify"], version = "*"}
+timm = "*"
 
 [dev-packages]
 
